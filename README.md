@@ -36,6 +36,7 @@
     - **B4:** Cắm usb vào lại máy đang hackintosh và tiến hành cài đặt app **`HeliPort`**.
 - Một số lỗi thường gặp khi không connect được wifi:
     - **Lỗi sai mật khẩu**: hãy cố gắng đảm bảo bạn đã nhập đúng mật khẩu. Đa số các bạn không connect được đều do nhập sai mật khẩu.
+    - **Cách xoá mật khẩu cũ:** **`Click chuột vào biểu tượng wifi của app HeliPort`** -> **`Open Network Preferences`** -> **`Network`** -> **`Xoá mật khẩu wifi đã lưu`** -> **`Restart lại máy`**.
 
 ### 2. Audio (Headphone):
 >**Lỗi méo âm, mất âm thanh sau khi sleep, cắm lại tai nghe thì mất âm thanh**.
