@@ -6,10 +6,14 @@
 - Trang web [hackintosh.vn](https://hackintosh.vn)
 
 ## Cấu hình máy:
-- CPU: Intel core I5-7200U
-- GPU: Intel graphics 620
-- Wifi: Intel AC8260
-- Audio: Realtek ALC295
+
+|   Thuộc tính  |       Thông số      |
+|:-------------:|---------------------|
+|      CPU      | Intel core I5-7200U |
+|      GPU      | Intel graphics 620  |
+|      RAM      | 4GB                 |
+|      Wifi     | Intel AC8260        |
+|      Audio    | Realtek ALC295      |
 
 ## Một vài công cụ cần để hỗ trợ hoàn thiện hackintosh:
 - [Hackintool]()
@@ -33,7 +37,7 @@
 - **B1:** Hãy đảm bảo đang để **layout** của **AppleALC** là **14**.
 - **B2:** Tiến hành tải **`ALCPlugfix`** của [**`hieplpvip`**](https://github.com/hieplpvip) tại [đây](https://github.com/hieplpvip/ALC295PlugFix)
 - **B3:** Cài đặt **`ALCPlugfix`** theo hướng dẫn của [**`hieplpvip`**](https://github.com/hieplpvip).
-- **B4:** Tải kext **`Codeccomander`** và bỏ vào **`LE (Library/Extensions)`**.
+- **B4:** Tải kext **`Codeccomander`** tại [đây](https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/downloads/) và bỏ vào **`LE (Library/Extensions)`**.
 - **B5:** Restart lại máy.
     
 **- Các lỗi hay gặp:**
@@ -63,12 +67,13 @@
 
 ### 3. Lỗi Full phân vùng EFI của ổ cứng:
 
-Thông thường sau khi erase ổ cứng trước khi cài macOS lên máy, phân vùng EFI sẽ được cấp 200MB. Vấn đề xảy ra khi các bạn xoá 1 file hay 1 folder trong phân vùng này nó sẽ không bị xoá đi hoàn toàn mà nó vẫn còn nằm ở đâu đó. Bạn có thể kiểm tra bằng cách check xem dung lượng còn lại của phân vùng EFI máy bạn và sau đó thử xoá đi file hay 1 folder. Điều ngạc nhiên là dung lượng khả dụng vẫn không tăng lên. Do đó có thể trong tương lai bạn sẽ bị gặp lỗi không đủ bộ nhớ để copy file vào trong EFI nữa.
+>Thông thường sau khi erase ổ cứng trước khi cài macOS lên máy, phân vùng EFI sẽ được cấp 200MB. **Vấn đề xảy ra khi các bạn xoá 1 file hay 1 folder trong phân vùng này nó sẽ không bị xoá đi hoàn toàn mà nó vẫn còn nằm ở đâu đó**. Bạn có thể kiểm tra bằng cách check xem dung lượng còn lại của phân vùng EFI máy bạn và sau đó thử xoá đi file hay 1 folder. Điều ngạc nhiên là dung lượng khả dụng vẫn không tăng lên. **Do đó có thể trong tương lai bạn sẽ bị gặp lỗi không đủ bộ nhớ để copy file vào trong EFI nữa**.
 
 **- Cách Fix: Format lại phân vùng EFI**
+
 Format lại phân vùng EFI và tất nhiên nó sẽ xoá toàn bộ file hay folder đang có nên trước khi format bạn hãy nhớ lưu lại bộ EFI mà bạn đã khổ công xây dựng.
 
-Topic gốc trên reddit.com tại [đây](https://www.reddit.com/r/hackintosh/comments/8rjdg8/efi_partition_full/) 
+>Topic gốc trên reddit.com tại [đây](https://www.reddit.com/r/hackintosh/comments/8rjdg8/efi_partition_full/) 
 
 - **B1:** Mở terminal
 - **B2:** Nhập lệnh **`diskutil list`**
