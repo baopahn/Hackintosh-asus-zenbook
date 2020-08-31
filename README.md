@@ -3,7 +3,7 @@
 ## Lời mở đầu:
 
 - Đây không phải là hướng dẫn cài hackintosh lên laptop. Các bạn có thể tự tìm hiểu bằng cách đọc thêm tại [vnohackintosh.com](https://vnohackintosh.com) hoặc [hackintosh.vn](https://hackintosh.vn).
-- Để hiểu rõ hơn về việc cài hackintosh các bạn có thể đọc thêm bài viết [**`quy trình cài đặt hackintosh cho người mới`**]((https://vnohackintosh.com/blog/2019/11/12/quy-trinh-cai-dat-hackintosh/)) của [vnohackintosh.com](https://vnohackintosh.com) hoặc đọc loạt bài [**`Hackintosh Vietnam Ebook`**](https://hackintosh.vn/hackintosh-guide) của [hackintosh.vn](https://hackintosh.vn)
+- Để hiểu rõ hơn về việc cài hackintosh các bạn có thể đọc thêm bài viết [**`quy trình cài đặt hackintosh cho người mới`**](https://vnohackintosh.com/blog/2019/11/12/quy-trinh-cai-dat-hackintosh/) của [vnohackintosh.com](https://vnohackintosh.com) hoặc đọc loạt bài [**`Hackintosh Vietnam Ebook`**](https://hackintosh.vn/hackintosh-guide) của [hackintosh.vn](https://hackintosh.vn)
 - Khi bạn đã cài đặt và làm theo thành công, đừng ngần ngại chia sẻ kiến thức của mình cho những bạn khác tại các kênh hackintosh của Việt Nam.
 
 ## Cộng đồng, website hướng dẫn hackintosh của Việt Nam:
