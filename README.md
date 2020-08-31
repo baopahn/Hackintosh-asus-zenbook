@@ -77,5 +77,5 @@ Format lại phân vùng EFI và tất nhiên nó sẽ xoá toàn bộ file hay 
 
 - **B1:** Mở terminal
 - **B2:** Nhập lệnh **`diskutil list`**
-- **B3:** Nhập lệnh **`sudo newfs_msdos -v EFI /dev/diskXsX`**
+- **B3:** Nhập lệnh **`sudo newfs_msdos -v EFI /dev/diskXsX`** với
 (**`diskXsX`** là **`IDENTIFIER`** của **`EFI`**)
