@@ -87,3 +87,10 @@ Topic gốc trên reddit.com tại [đây](https://www.reddit.com/r/hackintosh/c
 - **B2:** Nhập lệnh **`diskutil list`**.
 - **B3:** Nhập lệnh **`sudo newfs_msdos -v EFI /dev/diskXsX`** với
 (**`diskXsX`** là **`IDENTIFIER`** của **`EFI`**).
+
+### 4. Lỗi hibernate:
+- Thông thường các máy hackintosh sẽ không được hỗ trợ tính năng hibernate như trên các máy realmac. Chúng ta chỉ có thể sử dụng tính năng sleep. Do đó một vài máy hackintosh sleep lâu, máy tự đưa vào chế độ hibernate do đó gây ra lỗi.
+- Các tắt hibernate:
+    Dùng **`hackintool`**, vào phần **`Power`** các bạn sẽ thấy một vài dòng đỏ, chọn **`fix sleepimage`** (icon biểu tượng tua-vít) để **`hackintool`** tự fix.
+
+    
