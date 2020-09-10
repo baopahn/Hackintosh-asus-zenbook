@@ -21,6 +21,16 @@
 |      Wifi     | Intel AC8260        |
 |      Audio    | Realtek ALC295      |
 
+## Phiên bản macOS tương thích tốt ở thời điểm hiện tại:
+
+- **MacOS 10.15.6 Catalina**
+- **Lưu ý: Nên cập nhật lại các kext nếu bạn tìm thấy repos này đã quá cũ. (Thời điểm hiện tại: `10/09/2020`)**
+
+## Một số lưu ý trước khi cài macOS:
+- Hầu hết máy đều nhận chỉ trừ vân tay.
+- Lỗi âm thanh bị méo, mất tiếng khi dùng tai nghe (Đã có hướng dẫn fix ở bên dưới).
+- Bộ EFI chưa có **`serial number`** và các thông tin Fake các thiết bị mac. Bạn cần phải tải thêm **`GenSMBIOS`** để generate ra thông tin fake và thêm vào trong file **`config.plist`** (download tại [đây](https://github.com/corpnewt/GenSMBIOS)). Việc Fake thông tin máy này sẽ giúp các bạn có thể kích hoạt được iMess và FaceTime. 
+
 ## Một vài công cụ cần để hỗ trợ hoàn thiện hackintosh:
 - Hackintool - download tại [đây](https://www.tonymacx86.com/threads/release-hackintool-v3-x-x.254559/).
 - Clover Configurator - download tại [đây](https://mackie100projects.altervista.org/download-clover-configurator/).
