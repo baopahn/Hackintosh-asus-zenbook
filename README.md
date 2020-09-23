@@ -62,7 +62,7 @@
 
 **a. Báo lỗi không thể copy file vào trong `/usr/bin`.**
 
->**Lúc này bạn cần tiến hành copy file thủ công. Bạn có thể mở file install.sh để xem code bên trong.**
+>**Lúc này bạn cần tiến hành copy file thủ công. Bạn có thể mở file install.sh xem code bên trong để hiểu rõ hơn.**
 
 - **B1:** Mở terminal, nhập lệnh: **`sudo mount -uw /`** và **`sudo killall Finder`**.
     (2 lệnh này mục đích để cho phép bạn copy file vào **`/usr/bin`**).
