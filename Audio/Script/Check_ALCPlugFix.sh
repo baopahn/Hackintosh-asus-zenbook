@@ -7,7 +7,7 @@ then
     echo "                  >> ALCPlugFix exist. <<"
     echo "                  -----------------------"
 else
-    echo "                  >> ALCPlusFix is not exist. <<"
+    echo "                  >> ALCPlugFix not exist. <<"
     echo "                  ------------------------------"
 fi
 
