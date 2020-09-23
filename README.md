@@ -1,12 +1,15 @@
 # Hackintosh-asus-zenbook-ux430
 
 ## Lời mở đầu:
+![](/Screenshots/03.png)
+
 - Mình chỉ cung cấp bộ EFI của mình và chia sẻ một vài kinh nghiệm fix lỗi của mình.
 - Đây không phải là hướng dẫn cài hackintosh lên laptop. Các bạn có thể tự tìm hiểu bằng cách đọc thêm tại [vnohackintosh.com](https://vnohackintosh.com) hoặc [hackintosh.vn](https://hackintosh.vn).
 - Để hiểu rõ hơn về việc cài hackintosh các bạn có thể đọc thêm bài viết [**`quy trình cài đặt hackintosh cho người mới`**](https://vnohackintosh.com/blog/2019/11/12/quy-trinh-cai-dat-hackintosh/) của [vnohackintosh.com](https://vnohackintosh.com) hoặc đọc loạt bài [**`Hackintosh Vietnam Ebook`**](https://hackintosh.vn/hackintosh-guide) của [hackintosh.vn](https://hackintosh.vn)
 - Khi bạn đã cài đặt và làm theo thành công, đừng ngần ngại chia sẻ kiến thức của mình cho những bạn khác tại các kênh hackintosh của Việt Nam.
 
 ## Cộng đồng, website hướng dẫn hackintosh của Việt Nam:
+
 - Cộng đồng [hackintosh VNO](https://www.facebook.com/groups/vnohackintosh/?epa=SEARCH_BOX) trên Facebook.
 - Trang web [vnohackintosh.com](https://vnohackintosh.com).
 - Trang web [hackintosh.vn](https://hackintosh.vn).
@@ -22,6 +25,8 @@
 |      Audio    | Realtek ALC295      |
 
 ## Phiên bản macOS tương thích tốt ở thời điểm hiện tại:
+
+![](/Screenshots/01.png)
 
 - **MacOS 10.15.6 Catalina**
 - **Lưu ý: Nên cập nhật lại các kext nếu bạn tìm thấy repos này đã quá cũ. (Thời điểm hiện tại: `23/09/2020`)**
@@ -77,6 +82,10 @@
 
 
 ### 3. Lỗi Full phân vùng EFI của ổ cứng:
+- **Ảnh minh hoạ**
+
+![](/Screenshots/02.png)
+
 
 >Thông thường phân vùng EFI sẽ có dung lượng khoảng 200MB. **Vấn đề xảy ra khi các bạn xoá 1 file hay 1 folder trong phân vùng này, nó sẽ không bị xoá đi mà nó vẫn còn nằm ở đâu đó**. Bạn có thể kiểm tra bằng cách check xem dung lượng còn lại của phân vùng EFI máy bạn và sau đó thử xoá đi file hay 1 folder. Điều ngạc nhiên là dung lượng khả dụng vẫn không tăng lên. **Do đó có thể trong tương lai, bạn sẽ bị gặp lỗi không đủ bộ nhớ để copy file vào trong EFI nữa**.
 
