@@ -24,12 +24,13 @@
 ## Phiên bản macOS tương thích tốt ở thời điểm hiện tại:
 
 - **MacOS 10.15.6 Catalina**
-- **Lưu ý: Nên cập nhật lại các kext nếu bạn tìm thấy repos này đã quá cũ. (Thời điểm hiện tại: `10/09/2020`)**
+- **Lưu ý: Nên cập nhật lại các kext nếu bạn tìm thấy repos này đã quá cũ. (Thời điểm hiện tại: `23/09/2020`)**
 
-## Một số lưu ý trước khi cài macOS:
-- Hầu hết máy đều nhận chỉ trừ vân tay.
+## Một số lưu ý trước khi dùng bộ EFI:
+- Hầu hết phần cứng máy đều nhận chỉ trừ vân tay.
 - Lỗi âm thanh bị méo, mất tiếng khi dùng tai nghe (Đã có hướng dẫn fix ở bên dưới).
 - Bộ EFI chưa có **`serial number`** và các thông tin Fake các thiết bị mac. Bạn cần phải tải thêm **`GenSMBIOS`** để generate ra thông tin fake và thêm vào trong file **`config.plist`** (download tại [đây](https://github.com/corpnewt/GenSMBIOS)). Việc Fake thông tin máy này sẽ giúp các bạn có thể kích hoạt được iMess và FaceTime. 
+- Đối với các bạn đã cài thành công và muốn sử dụng bộ EFI này thì hãy format lại phân vùng EFI như hướng dẫn bên dưới nếu không đủ bộ nhớ rồi tiến hành copy như bình thường.
 
 ## Một vài công cụ cần để hỗ trợ hoàn thiện hackintosh:
 - Hackintool - download tại [đây](https://www.tonymacx86.com/threads/release-hackintool-v3-x-x.254559/).
@@ -53,36 +54,27 @@
 
 **- Cách Fix:**
 - **B1:** Hãy đảm bảo đang để **`layout`** của **`AppleALC`** là **14**.
-- **B2:** Tiến hành tải **`ALCPlugfix`** của [**`hieplpvip`**](https://github.com/hieplpvip) tại [đây](https://github.com/hieplpvip/ALC295PlugFix).
-- **B3:** Cài đặt **`ALCPlugfix`** theo hướng dẫn của [**`hieplpvip`**](https://github.com/hieplpvip).
-- **B4:** Tải kext **`Codeccommander`** tại [đây](https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/downloads/) và bỏ vào **`LE (/Library/Extensions)`**.
-- **B5:** Restart lại máy.
-    
-**- Các lỗi hay gặp:**
-
-**a. Báo lỗi không thể copy file vào trong `/usr/bin`.**
-
->**Lúc này bạn cần tiến hành copy file thủ công. Bạn có thể mở file install.sh xem code bên trong để hiểu rõ hơn.**
-
-- **B1:** Mở terminal, nhập lệnh: **`sudo mount -uw /`** và **`sudo killall Finder`**.
-    (2 lệnh này mục đích để cho phép bạn copy file vào **`/usr/bin`**).
-- **B2:** Mở thư mục **`alc_fix`** trong thư mục tải về của [**`hieplpvip`**](https://github.com/hieplpvip), copy 2 file **`ALCPlugfix`** và **`hda_verb`** vào **`/usr/bin`**.
-- **B3:** Copy file **`good.win.ALCPlugFix.plist`** vào **`/Library/LaunchAgents`**.
-- **B4:** Chạy lại file **install.sh** của [**`hieplpvip`**](https://github.com/hieplpvip).
-- **B5:** Restart lại máy.
+- **B2:** Tải thư mục **`Audio`** ở phía trên.
+- **B3:** Mở thư mục **`Resource`** trong **`Audio`**, copy 2 file **`ALCPlugfix`** và **`hda_verb`** vào **`/usr/local/bin`**.
+- **B4:** Copy file **`good.win.ALCPlugFix.plist`** vào **`/Library/LaunchDaemons`**.
+- **B5:** Chạy file **`Install.sh`** trong thư mục **`Script`**.
+- **B6:** Chạy file **`Check_ALCPlugFix.sh`** để check xem **`ALCPlugFix`** đã được load hay chưa.
+- **B7:** Tải kext **`Codeccommander`** tại [đây](https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/downloads/) và bỏ vào **`LE (/Library/Extensions)`**.
+- **B8:** Restart lại máy (nhằm rebuild kext cache).
+- **B9:** Tận hưởng thành quả.
 
 **Lưu ý:** nếu bạn không thấy thư mục  **`/usr`** thì hãy nhấn tổ hợp phím **`Command + Shift + "."`**.
 
-**b. Nếu âm thanh vẫn chưa được fix:**
->Nếu bạn đã làm tất cả các cách ở bên trên, service **`good.win.ALCPlugFix.plist`** đã load nhưng vẫn không fix được. Hãy thử cách bên dưới.
+**- Các lỗi hay gặp:**
+> Codeccommander không load được. Dùng hackintool để kiểm tra xem kext Codeccommander đã load hay chưa.
+- **B1:** Xoá **`Codeccommander`** trong **`LE`**.
+- **B2:** Bỏ **`Codeccommander`** vào trong **`CKO`** (**`/Clover/Kexts/Other`**) đối với **`Clover`** hoặc **`OK`** (**`/OC/Kexts`**) với **`Opencore`**.
+- **B3:**
+    - Clover chuyển sang bước 4.
+    - Opencore cần chỉnh sửa file **`config.plist`** để nạp kext. Các bạn có thể tự thêm thủ công hoặc sử dụng **`ProperTree`** như sau: mở file **`config.plist`** sau đó chọn **`open snapshot`** (hoặc tổ hợp phím **`Command + R`**) để tự nạp kext vào trong file config.
+- **B4:** Restart lại máy.
+- **B5:** Tận hưởng thành quả.
 
-- **B1:** Tiến hành tải **`XCode`**.
-- **B2:** Mở project **`ALCPlugFix.xcodeproj`**.
-- **B3:** Chạy project.
-(Khi chạy project xong, bạn có thể rút/cắm thử tai nghe vài lần để kiểm tra **`ALCPlugfix`** có hoạt động hay không).
-- **B4:** Nhấp chuột phải vào file **`ALCPlugfix`** (trong thư mục **`Products`**) bên góc trên tay trái màn hình, chọn **`Show in folder`**.
-- **B5:** Copy file **`ALCPlugfix`** vừa chạy được vào **`/usr/bin`**.
-- **B6:** Restart lại máy.
 
 ### 3. Lỗi Full phân vùng EFI của ổ cứng:
 
