@@ -66,12 +66,12 @@
 **Lưu ý:** nếu bạn không thấy thư mục  **`/usr`** thì hãy nhấn tổ hợp phím **`Command + Shift + "."`**.
 
 **- Các lỗi hay gặp:**
-> Codeccommander không load được. Dùng hackintool để kiểm tra xem kext Codeccommander đã load hay chưa.
+> **`Codeccommander`** không load được. (Dùng **`hackintool`** để kiểm tra xem kext **`Codeccommander`** đã load hay chưa).
 - **B1:** Xoá **`Codeccommander`** trong **`LE`**.
 - **B2:** Bỏ **`Codeccommander`** vào trong **`CKO`** (**`/Clover/Kexts/Other`**) đối với **`Clover`** hoặc **`OK`** (**`/OC/Kexts`**) với **`Opencore`**.
 - **B3:**
     - Clover chuyển sang bước 4.
-    - Opencore cần chỉnh sửa file **`config.plist`** để nạp kext. Các bạn có thể tự thêm thủ công hoặc sử dụng **`ProperTree`** như sau: mở file **`config.plist`** sau đó chọn **`open snapshot`** (hoặc tổ hợp phím **`Command + R`**) để tự nạp kext vào trong file config.
+    - Opencore cần chỉnh sửa file **`config.plist`** để nạp kext. Các bạn có thể tự thêm thủ công hoặc sử dụng **`ProperTree`** như sau: mở **`config.plist`** -> chọn **`open snapshot`** (hoặc tổ hợp phím **`Command + R`**) -> chọn **`OC`** trong **`EFI`**.
 - **B4:** Restart lại máy.
 - **B5:** Tận hưởng thành quả.
 
