@@ -38,9 +38,9 @@
 
 ## Một số lưu ý trước khi dùng bộ EFI:
 - Hầu hết phần cứng máy đều nhận chỉ trừ vân tay.
-- Lỗi âm thanh bị méo, mất tiếng khi dùng tai nghe (Đã có hướng dẫn fix ở bên dưới).
+- Lỗi âm thanh bị méo, mất tiếng khi dùng tai nghe (Đã có hướng dẫn fix ở bên [dưới](#2-audio-headphone)).
 - Bộ EFI chưa có **`serial number`** và các thông tin Fake các thiết bị mac. Bạn cần phải tải thêm **`GenSMBIOS`** để generate ra thông tin fake và thêm vào trong file **`config.plist`** (download tại [đây](https://github.com/corpnewt/GenSMBIOS)). Việc Fake thông tin máy này sẽ giúp các bạn có thể kích hoạt được iMess và FaceTime. 
-- Đối với các bạn đã cài thành công và muốn sử dụng bộ EFI này nếu không đủ vùng nhớ để copy/paste thì hãy format lại phân vùng EFI như hướng dẫn bên dưới nếu không đủ bộ nhớ rồi tiến hành copy như bình thường.
+- Đối với các bạn đã cài thành công và muốn sử dụng bộ EFI này nếu không đủ vùng nhớ để copy/paste thì hãy format lại phân vùng EFI như hướng dẫn bên [dưới](#3-lỗi-full-phân-vùng-efi-của-ổ-cứng) nếu không đủ bộ nhớ rồi tiến hành copy như bình thường.
 
 ## Một vài công cụ cần để hỗ trợ hoàn thiện hackintosh:
 - Hackintool - download tại [đây](https://www.tonymacx86.com/threads/release-hackintool-v3-x-x.254559/).
