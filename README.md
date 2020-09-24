@@ -3,8 +3,8 @@
 ## Lời mở đầu:
 ![](/Screenshots/03.png)
 
-- Mình chỉ cung cấp bộ EFI của mình và chia sẻ một vài kinh nghiệm fix lỗi của mình.
-- Đây không phải là hướng dẫn cài hackintosh lên laptop. Các bạn có thể tự tìm hiểu bằng cách đọc thêm tại [vnohackintosh.com](https://vnohackintosh.com) hoặc [hackintosh.vn](https://hackintosh.vn).
+- Đây không phải là hướng dẫn cài hackintosh lên laptop.
+- Mình chỉ cung cấp bộ EFI và chia sẻ một vài kinh nghiệm fix lỗi của mình.
 - Để hiểu rõ hơn về việc cài hackintosh các bạn có thể đọc thêm bài viết [**`quy trình cài đặt hackintosh cho người mới`**](https://vnohackintosh.com/blog/2019/11/12/quy-trinh-cai-dat-hackintosh/) của [vnohackintosh.com](https://vnohackintosh.com) hoặc đọc loạt bài [**`Hackintosh Vietnam Ebook`**](https://hackintosh.vn/hackintosh-guide) của [hackintosh.vn](https://hackintosh.vn)
 - Khi bạn đã cài đặt và làm theo thành công, đừng ngần ngại chia sẻ kiến thức của mình cho những bạn khác tại các kênh hackintosh của Việt Nam.
 
@@ -13,6 +13,11 @@
 - Cộng đồng [hackintosh VNO](https://www.facebook.com/groups/vnohackintosh/?epa=SEARCH_BOX) trên Facebook.
 - Trang web [vnohackintosh.com](https://vnohackintosh.com).
 - Trang web [hackintosh.vn](https://hackintosh.vn).
+
+## Nguồn gốc các bộ EFI:
+
+- Bộ EFI Opencore gốc là của [tunglamvghy](https://github.com/tunglamvghy) trên github giành cho máy **AsusS530UN** (Link gốc tại [đây](https://github.com/tunglamvghy/AsusS530UN-hackintosh)). Mình đã chỉnh sửa lại cho phù hợp với **Asus Zenbook UX430** và mọi thứ chạy rất mượt mà.
+- Bộ EFI Clover mình được cung cấp bởi [Thành Nhân]() (Link gốc tại [đây]()).
 
 ## Cấu hình máy:
 
@@ -35,7 +40,7 @@
 - Hầu hết phần cứng máy đều nhận chỉ trừ vân tay.
 - Lỗi âm thanh bị méo, mất tiếng khi dùng tai nghe (Đã có hướng dẫn fix ở bên dưới).
 - Bộ EFI chưa có **`serial number`** và các thông tin Fake các thiết bị mac. Bạn cần phải tải thêm **`GenSMBIOS`** để generate ra thông tin fake và thêm vào trong file **`config.plist`** (download tại [đây](https://github.com/corpnewt/GenSMBIOS)). Việc Fake thông tin máy này sẽ giúp các bạn có thể kích hoạt được iMess và FaceTime. 
-- Đối với các bạn đã cài thành công và muốn sử dụng bộ EFI này thì hãy format lại phân vùng EFI như hướng dẫn bên dưới nếu không đủ bộ nhớ rồi tiến hành copy như bình thường.
+- Đối với các bạn đã cài thành công và muốn sử dụng bộ EFI này nếu không đủ vùng nhớ để copy/paste thì hãy format lại phân vùng EFI như hướng dẫn bên dưới nếu không đủ bộ nhớ rồi tiến hành copy như bình thường.
 
 ## Một vài công cụ cần để hỗ trợ hoàn thiện hackintosh:
 - Hackintool - download tại [đây](https://www.tonymacx86.com/threads/release-hackintool-v3-x-x.254559/).
@@ -73,10 +78,12 @@
 **- Các lỗi hay gặp:**
 > **`Codeccommander`** không load được. (Dùng **`hackintool`** để kiểm tra xem kext **`Codeccommander`** đã load hay chưa).
 - **B1:** Xoá **`Codeccommander`** trong **`LE`**.
-- **B2:** Bỏ **`Codeccommander`** vào trong **`CKO`** (**`/Clover/Kexts/Other`**) đối với **`Clover`** hoặc **`OK`** (**`/OC/Kexts`**) với **`Opencore`**.
+- **B2:** Bỏ **`Codeccommander`** vào trong bộ EFI.
+    - Clover: Bỏ **`Codeccommander`** vào trong **`/Clover/Kexts/Other`**.
+    - Opencore: Bỏ **`Codeccommander`** vào trong **`/OC/Kexts`**.
 - **B3:**
-    - Clover chuyển sang bước 4.
-    - Opencore cần chỉnh sửa file **`config.plist`** để nạp kext. Các bạn có thể tự thêm thủ công hoặc sử dụng **`ProperTree`** như sau: mở **`config.plist`** -> chọn **`open snapshot`** (hoặc tổ hợp phím **`Command + R`**) -> chọn **`OC`** trong **`EFI`**.
+    - Clover chuyển sang **B4**.
+    - Opencore cần chỉnh sửa file **`config.plist`** để nạp kext. Mình đã chuẩn bị sẵn, bạn chỉ cần mở file **`config.plist`**, tìm kiếm **`Codeccommander`**, tìm nhánh **`Enable`** và sửa lại thành **`true`** (mặc định là mình để là **`false`**).
 - **B4:** Restart lại máy.
 - **B5:** Tận hưởng thành quả.
 
@@ -87,7 +94,7 @@
 ![](/Screenshots/02.png)
 
 
->Thông thường phân vùng EFI sẽ có dung lượng khoảng 200MB. **Vấn đề xảy ra khi các bạn xoá 1 file hay 1 folder trong phân vùng này, nó sẽ không bị xoá đi mà nó vẫn còn nằm ở đâu đó**. Bạn có thể kiểm tra bằng cách check xem dung lượng còn lại của phân vùng EFI máy bạn và sau đó thử xoá đi file hay 1 folder. Điều ngạc nhiên là dung lượng khả dụng vẫn không tăng lên. **Do đó có thể trong tương lai, bạn sẽ bị gặp lỗi không đủ bộ nhớ để copy file vào trong EFI nữa**.
+>Thông thường phân vùng EFI sẽ có dung lượng khoảng 200MB. **Vấn đề xảy ra khi các bạn xoá 1 file hay 1 folder trong phân vùng này, nó sẽ không bị xoá đi mà nó vẫn còn nằm ở đâu đó**. Bạn có thể kiểm tra bằng cách check xem dung lượng còn lại của phân vùng EFI máy bạn và sau đó thử xoá đi file hay 1 folder. Điều ngạc nhiên là dung lượng khả dụng vẫn không tăng lên. **Do đó có thể trong tương lai, bạn sẽ bị gặp lỗi không đủ bộ nhớ để copy file vào trong EFI nữa và gặp lỗi giống như hình minh hoạ**.
 
 **- Cách Fix: Format lại phân vùng EFI**
 
