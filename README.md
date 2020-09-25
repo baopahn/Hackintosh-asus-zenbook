@@ -17,7 +17,7 @@
 ## Nguồn gốc các bộ EFI:
 
 - Bộ EFI Opencore gốc là của [tunglamvghy](https://github.com/tunglamvghy) trên github giành cho máy **AsusS530UN** (Link gốc tại [đây](https://github.com/tunglamvghy/AsusS530UN-hackintosh)). Mình đã chỉnh sửa lại cho phù hợp với **Asus Zenbook UX430** và mọi thứ chạy rất mượt mà.
-- Bộ EFI Clover mình được cung cấp bởi [Thành Nhân]() (Link gốc tại [đây]()).
+- Bộ EFI Clover mình được cung cấp bởi [thanhnhan311201](https://github.com/thanhnhan311201) (Link gốc tại [đây](https://github.com/thanhnhan311201/Hackintosh-Asus-UX430UA)).
 
 ## Cấu hình máy:
 
@@ -40,7 +40,7 @@
 - Hầu hết phần cứng máy đều nhận chỉ trừ vân tay.
 - Lỗi âm thanh bị méo, mất tiếng khi dùng tai nghe (Đã có hướng dẫn fix ở bên [dưới](#2-audio-headphone)).
 - Bộ EFI chưa có **`serial number`** và các thông tin Fake các thiết bị mac. Bạn cần phải tải thêm **`GenSMBIOS`** để generate ra thông tin fake và thêm vào trong file **`config.plist`** (download tại [đây](https://github.com/corpnewt/GenSMBIOS)). Việc Fake thông tin máy này sẽ giúp các bạn có thể kích hoạt được iMess và FaceTime. 
-- Đối với các bạn đã cài thành công và muốn sử dụng bộ EFI này nếu không đủ vùng nhớ để copy/paste thì hãy format lại phân vùng EFI như hướng dẫn bên [dưới](#3-lỗi-full-phân-vùng-efi-của-ổ-cứng) nếu không đủ bộ nhớ rồi tiến hành copy như bình thường.
+- Đối với các bạn đã cài thành công và muốn sử dụng bộ EFI này nếu không đủ vùng nhớ để copy/paste thì hãy format lại phân vùng EFI như hướng dẫn bên [dưới](#3-lỗi-full-phân-vùng-efi-của-ổ-cứng) rồi tiến hành copy như bình thường.
 
 ## Một vài công cụ cần để hỗ trợ hoàn thiện hackintosh:
 - Hackintool - download tại [đây](https://www.tonymacx86.com/threads/release-hackintool-v3-x-x.254559/).
@@ -109,7 +109,7 @@ Topic gốc trên reddit.com tại [đây](https://www.reddit.com/r/hackintosh/c
 
 ### 4. Lỗi hibernate:
 - Thông thường các máy hackintosh sẽ không được hỗ trợ tính năng hibernate như trên các máy realmac. Chúng ta chỉ có thể sử dụng tính năng sleep. Do đó một vài máy hackintosh sleep lâu, máy tự đưa vào chế độ hibernate do đó gây ra lỗi.
-- Các tắt hibernate:
+- Cách tắt hibernate:
     Dùng **`hackintool`**, vào phần **`Power`** các bạn sẽ thấy một vài dòng đỏ, chọn **`fix sleepimage`** (icon biểu tượng tua-vít) để **`hackintool`** tự fix.
 
     
