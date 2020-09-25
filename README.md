@@ -4,7 +4,7 @@
 ![](/Screenshots/03.png)
 
 - Đây không phải là hướng dẫn cài hackintosh lên laptop.
-- Mình chỉ cung cấp bộ EFI và chia sẻ một vài kinh nghiệm fix lỗi của mình.
+- Mình chỉ cung cấp bộ EFI và chia sẻ một vài kinh nghiệm fix lỗi để hỗ trợ bạn hoàn thiện hackintosh của mình. Giúp bạn có thể có được một thiết bị gần giống với realmac nhất.
 - Để hiểu rõ hơn về việc cài hackintosh các bạn có thể đọc thêm bài viết [**`quy trình cài đặt hackintosh cho người mới`**](https://vnohackintosh.com/blog/2019/11/12/quy-trinh-cai-dat-hackintosh/) của [vnohackintosh.com](https://vnohackintosh.com) hoặc đọc loạt bài [**`Hackintosh Vietnam Ebook`**](https://hackintosh.vn/hackintosh-guide) của [hackintosh.vn](https://hackintosh.vn)
 - Khi bạn đã cài đặt và làm theo thành công, đừng ngần ngại chia sẻ kiến thức của mình cho những bạn khác tại các kênh hackintosh của Việt Nam.
 
@@ -50,9 +50,9 @@
 ### 1. Wifi:
 - Trong bộ **`EFI`** đã cài sẵn kext để sử dụng wifi đối với những máy sử dụng card wifi của intel. Nhưng để kích hoạt được wifi thì cần phải dùng app có tên **`HeliPort`**.
 - Các bạn có thể tìm hiểu rõ hơn ở bài viết của bạn **`Toan Vu`** trên cộng đồng **`VNO hackintosh`** tại [đây](https://www.facebook.com/groups/vnohackintosh/permalink/3258675994179296/) (Lưu ý là phải vào nhóm thì mới xem được bài viết vì nhóm đang để chế độ **nhóm riêng tư**).
-- Đối với các bạn có thể cắm mạng LAN thì dễ dàng cài đặt app, nhưng đối với các bạn không thể xài mạng LAN thì có thể dùng giải pháp sử dụng thêm 1 laptop Window và làm như sau:
+- Đối với các bạn có thể cắm mạng LAN thì dễ dàng cài đặt app, nhưng đối với các bạn không thể dùng mạng LAN thì có thể dùng giải pháp sử dụng thêm 1 laptop Window và làm như sau:
     - **B1:** Tải app **`MacDrive`** tại [đây](https://www.macdrive.com) vào máy window (App cho phép window đọc được các phân vùng định dạng của macOS).
-    - **B2:** Dùng macOS (máy đang hackintosh), mở app **`Disk Utility`** rồi format lại usb theo định dạng **`HFS+`**.
+    - **B2:** Dùng macOS (máy đang hackintosh), mở app **`Disk Utility`** rồi format lại usb theo định dạng **`HFS+`** (tuỳ chọn **`Mac OS extended (Journeled)`**).
     - **B3:** Tải app **`HeliPort`** tại [đây](https://github.com/OpenIntelWireless/HeliPort/releases/tag/v1.0.0) về máy window, copy vào usb.
     - **B4:** Cắm usb vào lại máy đang hackintosh và tiến hành cài đặt app **`HeliPort`**.
 - Một số lỗi thường gặp khi không connect được wifi:
