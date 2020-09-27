@@ -5,7 +5,7 @@
 
 - Đây không phải là hướng dẫn cài hackintosh lên laptop.
 - Mình chỉ cung cấp bộ EFI và chia sẻ một vài kinh nghiệm fix lỗi để hỗ trợ bạn hoàn thiện hackintosh của mình. Giúp bạn có thể có được một thiết bị gần giống với realmac nhất.
-- Để hiểu rõ hơn về việc cài hackintosh các bạn có thể đọc thêm bài viết [**`quy trình cài đặt hackintosh cho người mới`**](https://vnohackintosh.com/blog/2019/11/12/quy-trinh-cai-dat-hackintosh/) của [vnohackintosh.com](https://vnohackintosh.com) hoặc đọc loạt bài [**`Hackintosh Vietnam Ebook`**](https://hackintosh.vn/hackintosh-guide) của [hackintosh.vn](https://hackintosh.vn)
+- Để hiểu rõ hơn về việc cài hackintosh các bạn có thể đọc thêm bài viết [**`quy trình cài đặt hackintosh cho người mới`**](https://vnohackintosh.com/blog/2019/11/12/quy-trinh-cai-dat-hackintosh/) của [vnohackintosh.com](https://vnohackintosh.com) hoặc đọc loạt bài [**`Hackintosh Vietnam Ebook`**](https://hackintosh.vn/hackintosh-guide) của [hackintosh.vn](https://hackintosh.vn).
 - Khi bạn đã cài đặt và làm theo thành công, đừng ngần ngại chia sẻ kiến thức của mình cho những bạn khác tại các kênh hackintosh của Việt Nam.
 
 ## Cộng đồng, website hướng dẫn hackintosh của Việt Nam:
@@ -16,8 +16,8 @@
 
 ## Nguồn gốc các bộ EFI:
 
-- Bộ EFI Opencore gốc là của [tunglamvghy](https://github.com/tunglamvghy) trên github giành cho máy **AsusS530UN** (Link gốc tại [đây](https://github.com/tunglamvghy/AsusS530UN-hackintosh)). Mình đã chỉnh sửa lại cho phù hợp với **Asus Zenbook UX430** và mọi thứ chạy rất mượt mà.
-- Bộ EFI Clover mình được cung cấp bởi [thanhnhan311201](https://github.com/thanhnhan311201) (Link gốc tại [đây](https://github.com/thanhnhan311201/Hackintosh-Asus-UX430UA)).
+- Bộ **EFI Opencore** gốc là của [tunglamvghy](https://github.com/tunglamvghy) trên github giành cho máy **AsusS530UN** (Link gốc tại [đây](https://github.com/tunglamvghy/AsusS530UN-hackintosh)).
+- Bộ **EFI Clover** mình được cung cấp bởi [thanhnhan311201](https://github.com/thanhnhan311201) (Link gốc tại [đây](https://github.com/thanhnhan311201/Hackintosh-Asus-UX430UA)).
 
 ## Cấu hình máy:
 
@@ -33,14 +33,26 @@
 
 ![](/Screenshots/01.png)
 
-- **MacOS 10.15.6 Catalina**
-- **Lưu ý: Nên cập nhật lại các kext nếu bạn tìm thấy repos này đã quá cũ. (Thời điểm hiện tại: `23/09/2020`)**
+- **MacOS 10.15.7 Catalina** (Cả 2 bộ EFI).
+- **MacOS Big Sur beta 8** (EFI Opencore).
+- **Lưu ý:**
+    - **Đối với các máy sử dụng card wifi broadcom thì hiện tại đang bị lỗi treo táo, các máy sử dụng card wifi intel thì có thể sử dụng bộ EFI OC để nâng cấp lên Big Sur.**
+    - **Nên cập nhật lại các kext nếu bạn tìm thấy repos này đã quá cũ. (Thời điểm hiện tại: `25/09/2020`)**
 
 ## Một số lưu ý trước khi dùng bộ EFI:
+#### **Quan trọng:**
+- Khuyến khích nên sử dụng bộ **EFI Opencore** vì nó ổn định hơn so với bộ **EFI Clover**. Bộ quản lý năng lượng của **EFI Clover** hoạt động không ổn định sau khi **Sleep/Wakeup** khiến cho nhiệt độ của CPU tăng cao mặc dù không thực hiện bất cứ tác vụ nào.
+- Các kext và guide hướng dẫn hiện tại và về sau dành cho Opencore mới hơn và được cộng đồng hỗ trợ nhiều hơn.
+
+#### **Các lỗi cần phải fix khi dùng bộ EFI:**
 - Hầu hết phần cứng máy đều nhận chỉ trừ vân tay.
-- Lỗi âm thanh bị méo, mất tiếng khi dùng tai nghe (Đã có hướng dẫn fix ở bên [dưới](#2-audio-headphone)).
+- Lỗi wifi, đối với các thiết bị sử dụng **card wifi intel** hiện tại chưa thể dùng **Airport menu** gốc của máy để kết nối wifi mà phải sử dụng thêm 1 app có thên **Heliport** để kết nối wifi. (Hướng dẫn fix ở bên [dưới](#1-wifi)).
+- Lỗi âm thanh bị méo, mất tiếng khi dùng tai nghe (Hướng dẫn fix ở bên [dưới](#2-audio-headphone)).
+- Lỗi Hibernate (Hướng dẫn fix ở bên [dưới](#1-wifi#4-lỗi-hibernate)).
+
+#### **Cấu hình bộ EFI:**
 - Bộ EFI chưa có **`serial number`** và các thông tin Fake các thiết bị mac. Bạn cần phải tải thêm **`GenSMBIOS`** để generate ra thông tin fake và thêm vào trong file **`config.plist`** (download tại [đây](https://github.com/corpnewt/GenSMBIOS)). Việc Fake thông tin máy này sẽ giúp các bạn có thể kích hoạt được iMess và FaceTime. 
-- Đối với các bạn đã cài thành công và muốn sử dụng bộ EFI này nếu không đủ vùng nhớ để copy/paste thì hãy format lại phân vùng EFI như hướng dẫn bên [dưới](#3-lỗi-full-phân-vùng-efi-của-ổ-cứng) rồi tiến hành copy như bình thường.
+- Đối với các bạn đã cài thành công và muốn sử dụng bộ EFI này nếu không đủ vùng nhớ để copy/paste thì hãy format lại phân vùng EFI (Hướng dẫn bên [dưới](#3-lỗi-full-phân-vùng-efi-của-ổ-cứng)) rồi tiến hành copy như bình thường.
 
 ## Một vài công cụ cần để hỗ trợ hoàn thiện hackintosh:
 - Hackintool - download tại [đây](https://www.tonymacx86.com/threads/release-hackintool-v3-x-x.254559/).
@@ -63,20 +75,21 @@
 >**Lỗi méo âm, mất âm thanh sau khi sleep, cắm lại tai nghe thì mất âm thanh**.
 
 **- Cách Fix:**
-- **B1:** Hãy đảm bảo đang để **`layout`** của **`AppleALC`** là **14**.
+- **B1:** Hãy đảm bảo đang để **`layout`** của **`AppleALC`** là ***14** (Dùng **hackintool** để kiểm tra).
 - **B2:** Tải thư mục **`Audio`** ở phía trên.
 - **B3:** Mở thư mục **`Resource`** trong **`Audio`**, copy 2 file **`ALCPlugfix`** và **`hda_verb`** vào **`/usr/local/bin`**.
 - **B4:** Copy file **`good.win.ALCPlugFix.plist`** vào **`/Library/LaunchDaemons`**.
 - **B5:** Chạy file **`Install.sh`** trong thư mục **`Script`**.
 - **B6:** Chạy file **`Check_ALCPlugFix.sh`** để check xem **`ALCPlugFix`** đã được load hay chưa.
 - **B7:** Tải kext **`Codeccommander`** tại [đây](https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/downloads/) và bỏ vào **`LE (/Library/Extensions)`**.
-- **B8:** Restart lại máy (nhằm rebuild kext cache).
-- **B9:** Tận hưởng thành quả.
+- **B8:** Mở **`Terminal`** nhập lệnh **`sudo kextcache -i /`** để rebuild kext cache.
+- **B9:** Restart lại máy.
+- **B10:** Tận hưởng thành quả.
 
 **Lưu ý:** nếu bạn không thấy thư mục  **`/usr`** thì hãy nhấn tổ hợp phím **`Command + Shift + "."`**.
 
 **- Các lỗi hay gặp:**
-> **`Codeccommander`** không load được. (Dùng **`hackintool`** để kiểm tra xem kext **`Codeccommander`** đã load hay chưa).
+> **`Codeccommander`** không load được. (Dùng **`hackintool`** để kiểm tra xem kext **`Codeccommander`** đã được load chưa).
 - **B1:** Xoá **`Codeccommander`** trong **`LE`**.
 - **B2:** Bỏ **`Codeccommander`** vào trong bộ EFI.
     - Clover: Bỏ **`Codeccommander`** vào trong **`/Clover/Kexts/Other`**.
@@ -112,4 +125,8 @@ Topic gốc trên reddit.com tại [đây](https://www.reddit.com/r/hackintosh/c
 - Cách tắt hibernate:
     Dùng **`hackintool`**, vào phần **`Power`** các bạn sẽ thấy một vài dòng đỏ, chọn **`fix sleepimage`** (icon biểu tượng tua-vít) để **`hackintool`** tự fix.
 
-    
+### 5. Bỏ qua màn hình menu boot: 
+Khi đã hoàn thành xong và bạn muốn laptop của bạn mở máy trông thật giống với macbook thật, bỏ qua màn hình boot của Clover hay Opencore, hãy làm theo hướng dẫn dưới đây.
+
+- **Clover**: cài đặt **`timeout`** về **`0`**.
+- **Opencoer**: cài đặt **`showpicker`** về **`false`**
