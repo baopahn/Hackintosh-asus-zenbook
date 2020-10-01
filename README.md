@@ -34,7 +34,7 @@
 ![](/Screenshots/01.png)
 
 - **MacOS 10.15.7 Catalina** (Cả 2 bộ EFI).
-- **MacOS Big Sur beta 8** (EFI Opencore).
+- **MacOS Big Sur beta 9** (EFI Opencore).
 - **Lưu ý:**
     - **Đối với các máy sử dụng card wifi broadcom thì hiện tại đang bị lỗi treo táo, các máy sử dụng card wifi intel thì có thể sử dụng bộ EFI OC để nâng cấp lên Big Sur.**
     - **Nên cập nhật lại các kext nếu bạn tìm thấy repos này đã quá cũ. (Thời điểm hiện tại: `25/09/2020`)**
@@ -49,6 +49,7 @@
 - Lỗi wifi, đối với các thiết bị sử dụng **card wifi intel** hiện tại chưa thể dùng **Airport menu** gốc của máy để kết nối wifi mà phải sử dụng thêm 1 app có thên **Heliport** để kết nối wifi. (Hướng dẫn fix ở bên [dưới](#1-wifi)).
 - Lỗi âm thanh bị méo, mất tiếng khi dùng tai nghe (Hướng dẫn fix ở bên [dưới](#2-audio-headphone)).
 - Lỗi Hibernate (Hướng dẫn fix ở bên [dưới](#1-wifi#4-lỗi-hibernate)).
+- **Cập nhật**: Riêng đối với EFI Opencore hiện tại kext wifi đã được thay đổi sang dùng **AirportItlwm** nên đã có thể sử dụng được **Airport menu** gốc để sử dụng. Không cần sử dụng **Heliport** để connect.
 
 #### **Cấu hình bộ EFI:**
 - Bộ EFI chưa có **`serial number`** và các thông tin Fake các thiết bị mac. Bạn cần phải tải thêm **`GenSMBIOS`** để generate ra thông tin fake và thêm vào trong file **`config.plist`** (download tại [đây](https://github.com/corpnewt/GenSMBIOS)). Việc Fake thông tin máy này sẽ giúp các bạn có thể kích hoạt được iMess và FaceTime. 
