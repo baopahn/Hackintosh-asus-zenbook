@@ -16,7 +16,7 @@
 
 ## Nguồn gốc các bộ EFI:
 
-- Bộ **EFI Opencore** gốc là của [tunglamvghy](https://github.com/tunglamvghy) trên github giành cho máy **AsusS530UN** (Link gốc tại [đây](https://github.com/tunglamvghy/AsusS530UN-hackintosh)).
+- Bộ **EFI Opencore** gốc là của [tunglamvghy](https://github.com/tunglamvghy) giành cho máy **AsusS530UN** (Link gốc tại [đây](https://github.com/tunglamvghy/AsusS530UN-hackintosh)).
 - Bộ **EFI Clover** mình được cung cấp bởi [thanhnhan311201](https://github.com/thanhnhan311201) (Link gốc tại [đây](https://github.com/thanhnhan311201/Hackintosh-Asus-UX430UA)).
 
 ## Cấu hình máy:
@@ -37,23 +37,24 @@
 - **MacOS Big Sur beta 9** (EFI Opencore).
 - **Lưu ý:**
     - **Đối với các máy sử dụng card wifi broadcom thì hiện tại đang bị lỗi treo táo, các máy sử dụng card wifi intel thì có thể sử dụng bộ EFI OC để nâng cấp lên Big Sur.**
-    - **Nên cập nhật lại các kext nếu bạn tìm thấy repos này đã quá cũ. (Thời điểm hiện tại: `25/09/2020`)**
+    - **Nên cập nhật lại các kext nếu bạn tìm thấy repo này đã quá cũ. (Thời điểm hiện tại: `08/10/2020`)**
 
 ## Một số lưu ý trước khi dùng bộ EFI:
 #### **Quan trọng:**
 - Khuyến khích nên sử dụng bộ **EFI Opencore** vì nó ổn định hơn so với bộ **EFI Clover**. Bộ quản lý năng lượng của **EFI Clover** hoạt động không ổn định sau khi **Sleep/Wakeup** khiến cho nhiệt độ của CPU tăng cao mặc dù không thực hiện bất cứ tác vụ nào.
 - Các kext và guide hướng dẫn hiện tại và về sau dành cho Opencore mới hơn và được cộng đồng hỗ trợ nhiều hơn.
+> **Cập nhật:** Hiện tại mình sẽ chỉ **duy trì update** bộ **EFI Opencore**.
 
 #### **Các lỗi cần phải fix khi dùng bộ EFI:**
-- Hầu hết phần cứng máy đều nhận chỉ trừ vân tay.
-- Lỗi wifi, đối với các thiết bị sử dụng **card wifi intel** hiện tại chưa thể dùng **Airport menu** gốc của máy để kết nối wifi mà phải sử dụng thêm 1 app có thên **Heliport** để kết nối wifi. (Hướng dẫn fix ở bên [dưới](#1-wifi)).
+- Tất cả phần cứng máy đều nhận chỉ trừ vân tay.
+- Lỗi wifi, đối với các thiết bị sử dụng **card wifi intel** hiện tại chưa thể dùng **airport menu** gốc của máy để kết nối wifi mà phải sử dụng thêm 1 app có thên **Heliport** để kết nối wifi. (Hướng dẫn fix ở bên [dưới](#1-wifi)).
 - Lỗi âm thanh bị méo, mất tiếng khi dùng tai nghe (Hướng dẫn fix ở bên [dưới](#2-audio-headphone)).
 - Lỗi Hibernate (Hướng dẫn fix ở bên [dưới](#1-wifi#4-lỗi-hibernate)).
-- **Cập nhật**: Riêng đối với EFI Opencore hiện tại kext wifi đã được thay đổi sang dùng **AirportItlwm** nên đã có thể sử dụng được **Airport menu** gốc để sử dụng. Không cần sử dụng **Heliport** để connect.
+ > **Cập nhật:** Riêng đối với **EFI Opencore** hiện tại **kext wifi** đã được thay đổi sang dùng **AirportItlwm** nên đã có thể sử dụng được **airport menu** của macOS để sử dụng, không cần sử dụng **Heliport** để connect.
 
 #### **Cấu hình bộ EFI:**
-- Bộ EFI chưa có **`serial number`** và các thông tin Fake các thiết bị mac. Bạn cần phải tải thêm **`GenSMBIOS`** để generate ra thông tin fake và thêm vào trong file **`config.plist`** (download tại [đây](https://github.com/corpnewt/GenSMBIOS)). Việc Fake thông tin máy này sẽ giúp các bạn có thể kích hoạt được iMess và FaceTime. 
-- Đối với các bạn đã cài thành công và muốn sử dụng bộ EFI này nếu không đủ vùng nhớ để copy/paste thì hãy format lại phân vùng EFI (Hướng dẫn bên [dưới](#3-lỗi-full-phân-vùng-efi-của-ổ-cứng)) rồi tiến hành copy như bình thường.
+- Bộ EFI chưa có **`serial number`** và các thông tin fake thiết bị realmac. Bạn cần phải tải thêm **`GenSMBIOS`** để generate ra thông tin fake và thêm vào trong file **`config.plist`** (download tại [đây](https://github.com/corpnewt/GenSMBIOS)). Việc Fake thông tin máy này sẽ giúp các bạn có thể kích hoạt được **iMess** và **FaceTime**. 
+- Đối với các bạn đã cài thành công và muốn sử dụng bộ EFI này nếu **không đủ vùng nhớ để copy/paste** thì hãy format lại phân vùng EFI (Hướng dẫn bên [dưới](#3-lỗi-full-phân-vùng-efi-của-ổ-cứng)).
 
 ## Một vài công cụ cần để hỗ trợ hoàn thiện hackintosh:
 - Hackintool - download tại [đây](https://www.tonymacx86.com/threads/release-hackintool-v3-x-x.254559/).
@@ -63,12 +64,12 @@
 ### 1. Wifi:
 - Trong bộ **`EFI`** đã cài sẵn kext để sử dụng wifi đối với những máy sử dụng card wifi của intel. Nhưng để kích hoạt được wifi thì cần phải dùng app có tên **`HeliPort`**.
 - Các bạn có thể tìm hiểu rõ hơn ở bài viết của bạn **`Toan Vu`** trên cộng đồng **`VNO hackintosh`** tại [đây](https://www.facebook.com/groups/vnohackintosh/permalink/3258675994179296/) (Lưu ý là phải vào nhóm thì mới xem được bài viết vì nhóm đang để chế độ **nhóm riêng tư**).
-- Đối với các bạn có thể cắm mạng LAN thì dễ dàng cài đặt app, nhưng đối với các bạn không thể dùng mạng LAN thì có thể dùng giải pháp sử dụng thêm 1 laptop Window và làm như sau:
+- Đối với các bạn  không thể dùng mạng LAN thì có thể dùng **cáp kết nối điện thoại với laptop, sau đó chia sẻ kết nối internet từ điện thoại rồi download Heliport** hoặc **sử dụng thêm 1 laptop Window và làm như sau**:
     - **B1:** Tải app **`MacDrive`** tại [đây](https://www.macdrive.com) vào máy window (App cho phép window đọc được các phân vùng định dạng của macOS).
     - **B2:** Dùng macOS (máy đang hackintosh), mở app **`Disk Utility`** rồi format lại usb theo định dạng **`HFS+`** (tuỳ chọn **`Mac OS extended (Journeled)`**).
     - **B3:** Tải app **`HeliPort`** tại [đây](https://github.com/OpenIntelWireless/HeliPort/releases/tag/v1.0.0) về máy window, copy vào usb.
     - **B4:** Cắm usb vào lại máy đang hackintosh và tiến hành cài đặt app **`HeliPort`**.
-- Một số lỗi thường gặp khi không connect được wifi:
+- **Một số lỗi thường gặp khi không connect được wifi:**
     - **Lỗi sai mật khẩu**: hãy cố gắng đảm bảo bạn đã nhập đúng mật khẩu. Đa số các bạn không connect được đều do nhập sai mật khẩu.
     - **Cách xoá mật khẩu cũ:** **`Click chuột vào biểu tượng wifi của app HeliPort`** -> **`Open Network Preferences`** -> **`Network`** -> **`Xoá mật khẩu wifi đã lưu`** -> **`Restart lại máy`**.
 
@@ -76,7 +77,7 @@
 >**Lỗi méo âm, mất âm thanh sau khi sleep, cắm lại tai nghe thì mất âm thanh**.
 
 **- Cách Fix:**
-- **B1:** Hãy đảm bảo đang để **`layout`** của **`AppleALC`** là ***14** (Dùng **hackintool** để kiểm tra).
+- **B1:** Hãy đảm bảo đang để **`layout`** của **`AppleALC`** là **14** (Dùng **hackintool** để kiểm tra).
 - **B2:** Tải thư mục **`Audio`** ở phía trên.
 - **B3:** Mở thư mục **`Resource`** trong **`Audio`**, copy 2 file **`ALCPlugfix`** và **`hda_verb`** vào **`/usr/local/bin`**.
 - **B4:** Copy file **`good.win.ALCPlugFix.plist`** vào **`/Library/LaunchDaemons`**.

@@ -1728,7 +1728,7 @@
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>MinKernel</key>
 				<string></string>
 				<key>ExecutablePath</key>
@@ -1909,7 +1909,7 @@
 			<key>PollAppleHotKeys</key>
 			<true/>
 			<key>ShowPicker</key>
-			<true/>
+			<false/>
 			<key>TakeoffDelay</key>
 			<integer>0</integer>
 			<key>Timeout</key>
@@ -2109,9 +2109,9 @@
 			<key>SystemProductName</key>
 			<string>MacBookPro14,1</string>
 			<key>SystemSerialNumber</key>
-			<string>your system serial number</string>
+			<string>your serialnumber</string>
 			<key>SystemUUID</key>
-			<string>your system UUID</string>
+			<string>your UUID</string>
 		</dict>
 		<key>Generic</key>
 		<dict>
@@ -2128,9 +2128,9 @@
 			<key>SystemProductName</key>
 			<string>MacBookPro14,1</string>
 			<key>SystemSerialNumber</key>
-			<string>your system serial number</string>
+			<string>your serialnumber</string>
 			<key>SystemUUID</key>
-			<string>your system UUID</string>
+			<string>your UUID</string>
 		</dict>
 		<key>PlatformNVRAM</key>
 		<dict>
@@ -2172,7 +2172,7 @@
 			<key>ChassisManufacturer</key>
 			<string></string>
 			<key>ChassisSerialNumber</key>
-			<string>your system serial number</string>
+			<string>your serialnumber</string>
 			<key>ChassisType</key>
 			<integer>9</integer>
 			<key>ChassisVersion</key>
@@ -2198,9 +2198,9 @@
 			<key>SystemSKUNumber</key>
 			<string>Mac-226CB3C6A851A671</string>
 			<key>SystemSerialNumber</key>
-			<string>your system serial number</string>
+			<string>your serialnumber</string>
 			<key>SystemUUID</key>
-			<string>your system UUID</string>
+			<string>your UUID</string>
 			<key>SystemVersion</key>
 			<string>1.0</string>
 		</dict>
