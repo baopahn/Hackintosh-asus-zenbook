@@ -1,4 +1,4 @@
-# Hackintosh-asus-zenbook-ux430
+# Hackintosh Asus Zenbook UX430
 
 ## Lời mở đầu:
 ![](/Screenshots/03.png)
