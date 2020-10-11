@@ -62,13 +62,19 @@
 
 ## Fix một số lỗi quan trọng:
 ### 1. Wifi:
-- Trong bộ **`EFI`** đã cài sẵn kext để sử dụng wifi đối với những máy sử dụng card wifi của intel. Nhưng để kích hoạt được wifi thì cần phải dùng app có tên **`HeliPort`**.
 - Các bạn có thể tìm hiểu rõ hơn ở bài viết của bạn **`Toan Vu`** trên cộng đồng **`VNO hackintosh`** tại [đây](https://www.facebook.com/groups/vnohackintosh/permalink/3258675994179296/) (Lưu ý là phải vào nhóm thì mới xem được bài viết vì nhóm đang để chế độ **nhóm riêng tư**).
-- Đối với các bạn  không thể dùng mạng LAN thì có thể dùng **cáp kết nối điện thoại với laptop, sau đó chia sẻ kết nối internet từ điện thoại rồi download Heliport** hoặc **sử dụng thêm 1 laptop Window và làm như sau**:
-    - **B1:** Tải app **`MacDrive`** tại [đây](https://www.macdrive.com) vào máy window (App cho phép window đọc được các phân vùng định dạng của macOS).
-    - **B2:** Dùng macOS (máy đang hackintosh), mở app **`Disk Utility`** rồi format lại usb theo định dạng **`HFS+`** (tuỳ chọn **`Mac OS extended (Journeled)`**).
-    - **B3:** Tải app **`HeliPort`** tại [đây](https://github.com/OpenIntelWireless/HeliPort/releases/tag/v1.0.0) về máy window, copy vào usb.
-    - **B4:** Cắm usb vào lại máy đang hackintosh và tiến hành cài đặt app **`HeliPort`**.
+- Có 2 cách để có thể sử dụng được **kext itlwm**: sử dụng app **Heliport** để làm client kết nối wifi hoặc có thể chỉnh sửa trực tiếp **file info.plist** trong **kext itlwm** để kết nối wifi. Theo cá nhân mình khuyên các bạn nên sử dụng **Heliport** để có thể kết nối wifi tốt hơn khi di chuyển nhiều.
+- Các bạn có thể sử dụng mạng LAN để tải app Heliport. Nếu các bạn không có cổng chuyển đổi từ USB -> mạng LAN thì có thể sử dụng điện thoại, kết nối với laptop bằng cáp sạc rồi chia sẻ điểm truy cập internet thông qua cổng usb. (App Heliport chỉ tầm 10MB nên tải không tốn quá nhiều dung lượng).
+- Nhưng nếu các bạn không có mạng LAN và không muốn tốn tiền đăng ký mạng thì có thể làm theo cách mình hướng dẫn sau đây, cũng chính là cách kết nối wifi bằng **info.plist** trong **itlwm.kext**:
+    - **B1:** Mount bộ EFI ra bên ngoài, vào nơi chứa **`itlwm.kext`**. (**`Clover/Kexts/Other`** nếu là **Clover** và **`OC/Kexts`** nếu là **Opencore**).
+    - **B2:** Nhấp chuột phải vào **`itlwm.kext`** chọn **`Show Package Contents`**.
+    - **B3:** Vào bên trong **Contents**, mở file **`info.plistt`** bằng **Text Edit**.
+    - **B4:** Tìm **`WifiConfig`**, như ảnh phía bên dưới. Các nhánh **Wifi_1, Wifi_2, Wifi_3, Wifi_4** là các thông tin để connect wifi, các bạn hoàn toàn có thể thêm vào **Wifi_5, Wifi_6,...** với cấu trúc tương tự như **Wifi_1, Wifi_2,...** 
+    - **B5:** Điền **tên wifi** và **password** như hướng dẫn bên trong hình. (Chỉ cần đổi 1 nhánh là đủ)
+    ![](/Screenshots/wifi.png)
+    - **B6:** Lưu và khởi động lại máy.
+- Link tải app Heliport tại [đây](https://github.com/OpenIntelWireless/HeliPort/releases)
+
 - **Một số lỗi thường gặp khi không connect được wifi:**
     - **Lỗi sai mật khẩu**: hãy cố gắng đảm bảo bạn đã nhập đúng mật khẩu. Đa số các bạn không connect được đều do nhập sai mật khẩu.
     - **Cách xoá mật khẩu cũ:** **`Click chuột vào biểu tượng wifi của app HeliPort`** -> **`Open Network Preferences`** -> **`Network`** -> **`Xoá mật khẩu wifi đã lưu`** -> **`Restart lại máy`**.
