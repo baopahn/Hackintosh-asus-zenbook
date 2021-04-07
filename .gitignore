@@ -1,1 +1,4 @@
 .DS_Store
+/ToolCreateEFI/download
+/ToolCreateEFI/build
+/ToolCreateEFI/smbios.txt

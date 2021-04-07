@@ -1,0 +1,3 @@
+MODELSWIFI=(Intel Brcm)
+MODELCONFIGWIFI=(config_intel config_brcm)
+MODELDOWNLOAD=(download_intel.sh download_brcm.sh)

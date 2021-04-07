@@ -1,0 +1,3 @@
+NAME="UX430 (Kaby Lake)"
+CONFIGPLIST="ux430-kabylake.plist"
+AMLFILES=("SSDT-UX430-KabyLake")
