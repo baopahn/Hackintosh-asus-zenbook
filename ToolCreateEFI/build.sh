@@ -20,8 +20,8 @@ done
 echo
 
 echo "[2]: Download resource:"
-# rm -r download
-# sh "${MODELDOWNLOAD[$opt_wifi]}"
+rm -r download
+sh "${MODELDOWNLOAD[$opt_wifi]}"
 
 # Select model
 . ./src/models.txt
@@ -74,7 +74,7 @@ if [ -e src/smbios.txt ]; then
       rm -f src/smbios.txt && ./GenSMBIOS/GenSMBIOS.command >> src/smbios.txt
     fi
 else
-    ./GenSMBIOS/GenSMBIOS.command >> /src/smbios.txt
+    ./GenSMBIOS/GenSMBIOS.command >> src/smbios.txt
 fi
 
 . ./src/smbios.txt
