@@ -61,6 +61,8 @@ sh main.sh
 
 - Các bạn tiếp tục mở tool của mình và chọn option số 2 thì âm thanh sẽ tự động được fix. Rất đơn giản :)))
 
+[![HDSH](/Screenshots/03.png)](http://www.youtube.com/watch?v=Qc2vk0IJoz0 "Hướng dẫn sử dụng tool để tạo EFI")
+
 ## Một số lỗi thường gặp:
 
 ### 1. Lỗi Full phân vùng EFI của ổ cứng:
