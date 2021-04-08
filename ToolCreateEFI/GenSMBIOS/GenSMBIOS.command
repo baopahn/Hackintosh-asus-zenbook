@@ -96,9 +96,7 @@ class Smbios:
     def _download_and_extract(self, temp, url, path_in_zip=[]):
         ztemp = tempfile.mkdtemp(dir=temp)
         zfile = os.path.basename(url)
-        print("Downloading {}...".format(os.path.basename(url)))
         self.d.stream_to_file(url, os.path.join(ztemp,zfile), False)
-        print(" - Extracting...")
         btemp = tempfile.mkdtemp(dir=temp)
         # Extract with built-in tools \o/
         with zipfile.ZipFile(os.path.join(ztemp,zfile)) as z:
@@ -110,20 +108,14 @@ class Smbios:
         for x in os.listdir(search_path):
             if "macserial" in x.lower():
                 # Found one
-                print(" - Found {}".format(x))
                 if os.name != "nt":
-                    print("   - Chmod +x...")
                     self.r.run({"args":["chmod","+x",os.path.join(search_path,x)]})
-                print("   - Copying to {} directory...".format(self.scripts))
                 if not os.path.exists(script_dir):
                     os.mkdir(script_dir)
                 shutil.copy(os.path.join(search_path,x), os.path.join(script_dir,x))
 
     def _get_macserial(self):
         # Download both the windows and mac versions of macserial and expand them to the Scripts dir
-        self.u.head("Getting MacSerial")
-        print("")
-        print("Gathering latest macserial info...")
         # Check if Linux - as that only gets the old version
         if sys.platform.startswith("linux"):
             url = self._get_macserial_url_linux()
@@ -132,17 +124,13 @@ class Smbios:
             url = self._get_macserial_url()
             path_in_zip = ["Utilities","macserial"]
         if not url:
-            print("Error checking for updates (network issue)\n")
-            self.u.grab("Press [enter] to return...")
             return
         temp = tempfile.mkdtemp()
         cwd  = os.getcwd()
         try:
-            print(" - {}".format(url))
             self._download_and_extract(temp,url,path_in_zip)
         except Exception as e:
-            print("We ran into some problems :(\n\n{}".format(e))
-        print("\nCleaning up...")
+
         os.chdir(cwd)
         shutil.rmtree(temp)
         self.u.grab("\nDone.",timeout=5)
@@ -150,13 +138,10 @@ class Smbios:
 
     def _get_remote_version(self):
         if sys.platform.startswith("linux"):
-            print(" - Running on Linux, limited to v2.1.2")
             vers = self._get_macserial_version_linux()
         else:
             vers = self._get_macserial_version()
         if not vers:
-            print("Error checking for updates (network issue)\n")
-            self.u.grab("Press [enter] to return...")
             return None
         return vers
 
