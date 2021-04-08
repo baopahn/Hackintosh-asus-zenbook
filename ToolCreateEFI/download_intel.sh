@@ -59,16 +59,16 @@ cd ..
 
 # download kexts
 mkdir ./zips && cd ./zips
-# download_github "acidanthera/Lilu" "RELEASE" "acidanthera-Lilu.zip"
-# download_github "acidanthera/AppleALC" "RELEASE" "acidanthera-AppleALC.zip"
-# download_github "acidanthera/CPUFriend" "RELEASE" "acidanthera-CPUFriend.zip"
-# download_github "acidanthera/CpuTscSync" "RELEASE" "acidanthera-CpuTscSync.zip"
-# download_github "acidanthera/HibernationFixup" "RELEASE" "acidanthera-HibernationFixup.zip"
-# download_github "acidanthera/VirtualSMC" "RELEASE" "acidanthera-VirtualSMC.zip"
-# download_github "acidanthera/VoodooPS2" "RELEASE" "acidanthera-VoodooPS2.zip"
-# download_github "acidanthera/WhateverGreen" "RELEASE" "acidanthera-WhateverGreen.zip"
-# download_github "hieplpvip/AsusSMC" "RELEASE" "hieplpvip-AsusSMC.zip"
-# download_github "VoodooI2C/VoodooI2C" "VoodooI2C-" "VoodooI2C-VoodooI2C.zip"
+download_github "acidanthera/Lilu" "RELEASE" "acidanthera-Lilu.zip"
+download_github "acidanthera/AppleALC" "RELEASE" "acidanthera-AppleALC.zip"
+download_github "acidanthera/CPUFriend" "RELEASE" "acidanthera-CPUFriend.zip"
+download_github "acidanthera/CpuTscSync" "RELEASE" "acidanthera-CpuTscSync.zip"
+download_github "acidanthera/HibernationFixup" "RELEASE" "acidanthera-HibernationFixup.zip"
+download_github "acidanthera/VirtualSMC" "RELEASE" "acidanthera-VirtualSMC.zip"
+download_github "acidanthera/VoodooPS2" "RELEASE" "acidanthera-VoodooPS2.zip"
+download_github "acidanthera/WhateverGreen" "RELEASE" "acidanthera-WhateverGreen.zip"
+download_github "hieplpvip/AsusSMC" "RELEASE" "hieplpvip-AsusSMC.zip"
+download_github "VoodooI2C/VoodooI2C" "VoodooI2C-" "VoodooI2C-VoodooI2C.zip"
 # <bao>
 # download kext wifi&bluetooth intel
 download_github "OpenIntelWireless/itlwm" "${MODELKEXTWIFI[$opt_macOS]}" "${MODELKEXTWIFIRENAME[$opt_macOS]}"
