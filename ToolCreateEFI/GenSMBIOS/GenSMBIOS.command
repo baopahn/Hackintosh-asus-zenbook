@@ -130,7 +130,7 @@ class Smbios:
         try:
             self._download_and_extract(temp,url,path_in_zip)
         except Exception as e:
-
+          print()
         os.chdir(cwd)
         shutil.rmtree(temp)
         self.u.grab("\nDone.",timeout=5)
