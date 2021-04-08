@@ -6,7 +6,7 @@ oc_version="0.6.7"
 . ./src/macOSVersion.txt
 echo "Select macOS version:"
 echo
-PS3='Select model wifi: '
+PS3='Select macOS: '
 select opt_macOS in "${MODELMACOS[@]}"
 do
     for i in "${!MODELMACOS[@]}"; do
