@@ -130,10 +130,9 @@ class Smbios:
         try:
             self._download_and_extract(temp,url,path_in_zip)
         except Exception as e:
-          print()
+          temp=1
         os.chdir(cwd)
         shutil.rmtree(temp)
-        self.u.grab("\nDone.",timeout=5)
         return
 
     def _get_remote_version(self):
