@@ -61,7 +61,7 @@ sh main.sh
 
 - Các bạn tiếp tục mở tool của mình và chọn option số 2 thì âm thanh sẽ tự động được fix. Rất đơn giản :)))
 
-### Video hướng dẫn sử dụng:
+### Video hướng dẫn sử dụng (Bật phụ để để xem hướng dẫn chi tiết):
 
 [![HDSH](http://img.youtube.com/vi/Qc2vk0IJoz0/0.jpg)](http://www.youtube.com/watch?v=Qc2vk0IJoz0 "Hướng dẫn sử dụng tool để tạo EFI")
 
