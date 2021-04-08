@@ -43,7 +43,7 @@
 #### Bước 1: Mở terminal và chạy dòng lệnh bên dưới để download tool về máy:
 
 ```shell
-git clone https://github.com/hieplpvip/Asus-Zenbook-Hackintosh zenbook
+git clone https://github.com/PLHB1712289/Hackintosh-asus-zenbook.git zenbook
 cd zenbook
 ```
 
