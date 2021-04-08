@@ -2,6 +2,24 @@
 echo "INTEL"
 oc_version="0.6.7"
 
+# Select macOS version
+. ./src/macOSVersion.txt
+echo "Select macOS version:"
+echo
+PS3='Select model wifi: '
+select opt_macOS in "${MODELMACOS[@]}"
+do
+    for i in "${!MODELMACOS[@]}"; do
+        if [[ "${MODELMACOS[$i]}" = "${opt_macOS}" ]]; then
+            opt_macOS=$i
+            break 2
+        fi
+    done
+    echo Invalid
+    echo
+done
+echo
+
 curl_options="--retry 5 --location --progress-bar"
 curl_options_silent="--retry 5 --location --silent"
 
@@ -41,20 +59,19 @@ cd ..
 
 # download kexts
 mkdir ./zips && cd ./zips
-download_github "acidanthera/Lilu" "RELEASE" "acidanthera-Lilu.zip"
-download_github "acidanthera/AppleALC" "RELEASE" "acidanthera-AppleALC.zip"
-download_github "acidanthera/CPUFriend" "RELEASE" "acidanthera-CPUFriend.zip"
-download_github "acidanthera/CpuTscSync" "RELEASE" "acidanthera-CpuTscSync.zip"
-download_github "acidanthera/HibernationFixup" "RELEASE" "acidanthera-HibernationFixup.zip"
-download_github "acidanthera/VirtualSMC" "RELEASE" "acidanthera-VirtualSMC.zip"
-download_github "acidanthera/VoodooPS2" "RELEASE" "acidanthera-VoodooPS2.zip"
-download_github "acidanthera/WhateverGreen" "RELEASE" "acidanthera-WhateverGreen.zip"
-download_github "hieplpvip/AsusSMC" "RELEASE" "hieplpvip-AsusSMC.zip"
-# download_github "hieplpvip/AppleBacklightSmoother" "RELEASE" "hieplpvip-AppleBacklightSmoother.zip"
-download_github "VoodooI2C/VoodooI2C" "VoodooI2C-" "VoodooI2C-VoodooI2C.zip"
+# download_github "acidanthera/Lilu" "RELEASE" "acidanthera-Lilu.zip"
+# download_github "acidanthera/AppleALC" "RELEASE" "acidanthera-AppleALC.zip"
+# download_github "acidanthera/CPUFriend" "RELEASE" "acidanthera-CPUFriend.zip"
+# download_github "acidanthera/CpuTscSync" "RELEASE" "acidanthera-CpuTscSync.zip"
+# download_github "acidanthera/HibernationFixup" "RELEASE" "acidanthera-HibernationFixup.zip"
+# download_github "acidanthera/VirtualSMC" "RELEASE" "acidanthera-VirtualSMC.zip"
+# download_github "acidanthera/VoodooPS2" "RELEASE" "acidanthera-VoodooPS2.zip"
+# download_github "acidanthera/WhateverGreen" "RELEASE" "acidanthera-WhateverGreen.zip"
+# download_github "hieplpvip/AsusSMC" "RELEASE" "hieplpvip-AsusSMC.zip"
+# download_github "VoodooI2C/VoodooI2C" "VoodooI2C-" "VoodooI2C-VoodooI2C.zip"
 # <bao>
 # download kext wifi&bluetooth intel
-download_github "OpenIntelWireless/itlwm" "AirportItlwm_v1.2.0_stable_BigSur" "OpenIntelWireless-AiportItlwmBigSur.zip"
+download_github "OpenIntelWireless/itlwm" "${MODELKEXTWIFI[$opt_macOS]}" "${MODELKEXTWIFIRENAME[$opt_macOS]}"
 download_github "OpenIntelWireless/IntelBluetoothFirmware" "IntelBluetooth" "OpenIntelWireless-IntelBluetoothFirmware.zip"
 # download kext codecomander
 download_github "Sniki/EAPD-Codec-Commander" "RELEASE" "Sniki-Codeccommander.zip"
