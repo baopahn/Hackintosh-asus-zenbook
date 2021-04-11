@@ -55,7 +55,9 @@ sh main.sh
 
 #### Bước 3: Chọn option số 1 để build EFI:
 
-- Sau khi tạo xong bộ EFI sẽ nằm trong `/ToolCreateEFI/build`
+- Sau khi tạo xong bộ EFI sẽ nằm trong tool.
+
+![](/Screenshots/04.png)
 
 ### Hướng dẫn fix lỗi âm thanh trên tai nghe:
 
