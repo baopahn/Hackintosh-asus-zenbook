@@ -188,13 +188,11 @@ class Smbios:
         smtype = "MacBookPro14,1"
         times  = 1
         smbios = self._get_smbios(macserial,smtype,times)
-        
-        print("\n\n".join(["SystemSerialNumber={}\nMLB={}\nSystemUUID={}".format(x[1], x[2], x[3]) for x in smbios]))
+        print("SystemSerialNumber={}\nMLB={}\nSystemUUID={}".format(smbios[0][1], smbios[0][2], smbios[0][3]))
 
 
     def main(self):
         self._generate_smbios(self._get_binary())
 
 s = Smbios()
-
 s.main()

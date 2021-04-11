@@ -1,2 +1,0 @@
-MODELS_WIFI=(“Itlwm” “Brcm”)
-MODELCONFIG_WIFI=(“intel” “brcm”)

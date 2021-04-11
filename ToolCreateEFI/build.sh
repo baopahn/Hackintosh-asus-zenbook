@@ -89,3 +89,7 @@ find $OCFOLDER/Drivers ! -name AudioDxe.efi \
 
 # Remove unused UEFI Tools
 rm -rf $OCFOLDER/Tools
+
+rm -r ./../EFI
+mv -v ./build/EFI ./../EFI
+echo "<=== DONE ===>"
