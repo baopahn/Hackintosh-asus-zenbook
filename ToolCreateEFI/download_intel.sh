@@ -1,11 +1,9 @@
 #!/bin/bash
-echo "INTEL"
 oc_version="0.6.7"
 
 # Select macOS version
 . ./src/macOSVersion.txt
 echo "Select macOS version:"
-echo
 PS3='Select macOS: '
 select opt_macOS in "${MODELMACOS[@]}"
 do

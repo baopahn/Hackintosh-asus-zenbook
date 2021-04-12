@@ -1,10 +1,9 @@
 #!/bin/bash
 IASL='./tools/iasl -vw 3073 -vi -vr -p'
 
-# Select model
+# Select wifi card
 . ./src/wifi.txt
-echo "[1]: Select kext wifi:"
-echo
+echo "[0%]: Select kext wifi:"
 PS3='Select model wifi: '
 select opt_wifi in "${MODELSWIFI[@]}"
 do
@@ -19,14 +18,14 @@ do
 done
 echo
 
-echo "[2]: Download resource:"
-rm -r download
-sh "${MODELDOWNLOAD[$opt_wifi]}"
+# Download kext
+echo "[25%]: Download resource:"
+# rm -r ./download
+# sh "${MODELDOWNLOAD[$opt_wifi]}"
 
 # Select model
 . ./src/models.txt
-echo "[3]: Select model laptop:"
-echo
+echo "[75%]: Select model laptop:"
 PS3='Select model: '
 select opt in "${MODELS[@]}"
 do
@@ -66,7 +65,7 @@ cp -R src/kexts/* $OCFOLDER/Kexts/
 # Copy OpenCore config
 cp src/"${MODELCONFIGWIFI[$opt_wifi]}"/$CONFIGPLIST $OCFOLDER/config.plist
 
-echo "[4]: Serial number:"
+echo "[100%]: Serial number:"
 # Replace SMBIOS
 if [ -e src/smbios.txt ]; then
     read -p "Serial number exists. Do you want to use the old serial number? [y/n]: "  should_create
@@ -90,6 +89,7 @@ find $OCFOLDER/Drivers ! -name AudioDxe.efi \
 # Remove unused UEFI Tools
 rm -rf $OCFOLDER/Tools
 
+# Copy EFI
 rm -r ./../EFI
 mv -v ./build/EFI ./../EFI
-echo "<=== DONE ===>"
+cat ./logo/logo_done.txt

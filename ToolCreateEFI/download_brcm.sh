@@ -1,5 +1,4 @@
-#!/bin/bash
-echo "BRCM"
+#!/bin/bash`
 oc_version="0.6.7"
 
 curl_options="--retry 5 --location --progress-bar"
