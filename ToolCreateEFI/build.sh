@@ -20,8 +20,8 @@ echo
 
 # Download kext
 echo "[25%]: Download resource:"
-# rm -r ./download
-# sh "${MODELDOWNLOAD[$opt_wifi]}"
+rm -r ./download
+sh "${MODELDOWNLOAD[$opt_wifi]}"
 
 # Select model
 . ./src/models.txt
