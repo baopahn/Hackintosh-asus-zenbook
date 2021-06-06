@@ -1,3 +1,3 @@
 MODELMACOS=("BigSur" Catalina HighSierra Mojave)
-MODELKEXTWIFI=("AirportItlwm_v1.2.0_stable_BigSur" "AirportItlwm_v1.2.0_stable_Catalina" "AirportItlwm_v1.2.0_stable_HighSierra" "AirportItlwm_v1.2.0_stable_Mojave")
+MODELKEXTWIFI=("AirportItlwm_v1.3.0_stable_BigSur" "AirportItlwm_v1.3.0_stable_Catalina" "AirportItlwm_v1.3.0_stable_HighSierra" "AirportItlwm_v1.3.0_stable_Mojave")
 MODELKEXTWIFIRENAME=("OpenIntelWireless-AiportItlwmBigSur.zip" "OpenIntelWireless-AiportItlwmCatalina.zip" "OpenIntelWireless-AiportItlwmHighSierra.zip" "OpenIntelWireless-AiportItlwmMojave.zip")

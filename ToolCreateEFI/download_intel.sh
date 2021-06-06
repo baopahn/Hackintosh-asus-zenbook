@@ -26,9 +26,10 @@ function download_github()
 # $1 is sub URL of release page
 # $2 is partial file name to look for
 # $3 is file name to rename to
+# $4 is tag release
 {
     echo "downloading `basename $3 .zip`:"
-    curl $curl_options_silent --output /tmp/com.hieplpvip.download.txt "https://github.com/$1/releases/latest"
+    curl $curl_options_silent --output /tmp/com.hieplpvip.download.txt "https://github.com/$1/releases/$4"
     local url=https://github.com`grep -o -m 1 "/.*$2.*\.zip" /tmp/com.hieplpvip.download.txt`
     echo $url
     curl $curl_options --output "$3" "$url"
@@ -57,22 +58,22 @@ cd ..
 
 # download kexts
 mkdir ./zips && cd ./zips
-download_github "acidanthera/Lilu" "RELEASE" "acidanthera-Lilu.zip"
-download_github "acidanthera/AppleALC" "RELEASE" "acidanthera-AppleALC.zip"
-download_github "acidanthera/CPUFriend" "RELEASE" "acidanthera-CPUFriend.zip"
-download_github "acidanthera/CpuTscSync" "RELEASE" "acidanthera-CpuTscSync.zip"
-download_github "acidanthera/HibernationFixup" "RELEASE" "acidanthera-HibernationFixup.zip"
-download_github "acidanthera/VirtualSMC" "RELEASE" "acidanthera-VirtualSMC.zip"
-download_github "acidanthera/VoodooPS2" "RELEASE" "acidanthera-VoodooPS2.zip"
-download_github "acidanthera/WhateverGreen" "RELEASE" "acidanthera-WhateverGreen.zip"
-download_github "hieplpvip/AsusSMC" "RELEASE" "hieplpvip-AsusSMC.zip"
-download_github "VoodooI2C/VoodooI2C" "VoodooI2C-" "VoodooI2C-VoodooI2C.zip"
+download_github "acidanthera/Lilu" "RELEASE" "acidanthera-Lilu.zip" "latest"
+download_github "acidanthera/AppleALC" "RELEASE" "acidanthera-AppleALC.zip" "latest"
+download_github "acidanthera/CPUFriend" "RELEASE" "acidanthera-CPUFriend.zip" "latest"
+download_github "acidanthera/CpuTscSync" "RELEASE" "acidanthera-CpuTscSync.zip" "latest"
+download_github "acidanthera/HibernationFixup" "RELEASE" "acidanthera-HibernationFixup.zip" "latest"
+download_github "acidanthera/VirtualSMC" "RELEASE" "acidanthera-VirtualSMC.zip" "latest"
+download_github "acidanthera/VoodooPS2" "RELEASE" "acidanthera-VoodooPS2.zip" "latest"
+download_github "acidanthera/WhateverGreen" "RELEASE" "acidanthera-WhateverGreen.zip" "latest"
+download_github "hieplpvip/AsusSMC" "RELEASE" "hieplpvip-AsusSMC.zip" "latest"
+download_github "VoodooI2C/VoodooI2C" "VoodooI2C-" "VoodooI2C-VoodooI2C.zip" "latest"
 # <bao>
 # download kext wifi&bluetooth intel
-download_github "OpenIntelWireless/itlwm" "${MODELKEXTWIFI[$opt_macOS]}" "${MODELKEXTWIFIRENAME[$opt_macOS]}"
-download_github "OpenIntelWireless/IntelBluetoothFirmware" "IntelBluetooth" "OpenIntelWireless-IntelBluetoothFirmware.zip"
+download_github "OpenIntelWireless/itlwm" "${MODELKEXTWIFI[$opt_macOS]}" "${MODELKEXTWIFIRENAME[$opt_macOS]}" "v1.3.0"
+download_github "OpenIntelWireless/IntelBluetoothFirmware" "IntelBluetooth" "OpenIntelWireless-IntelBluetoothFirmware.zip" "latest"
 # download kext codecomander
-download_github "Sniki/EAPD-Codec-Commander" "RELEASE" "Sniki-Codeccommander.zip"
+download_github "Sniki/EAPD-Codec-Commander" "RELEASE" "Sniki-Codeccommander.zip" "latest"
 # </bao>
 
 cd ..
